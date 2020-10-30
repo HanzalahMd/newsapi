@@ -14,7 +14,7 @@ const URL = 'https://newsapi.org/v2/top-headlines';
 app.get('/', (req, res)=>{
     res.status(200);
     res.type('text/html');
-    res.render('index');
+    res.redirect('http://localhost:3000/search?search=latest+news');
 })
 
 app.get('/search', async (req,res)=>{
