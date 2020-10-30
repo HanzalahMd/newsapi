@@ -8,13 +8,14 @@ const app = express();
 app.engine('hbs', hbs({defaultLayout: 'default.hbs'}))
 app.set('view engine', 'hbs');
 
-const API_KEY = 'e68bfd865eb3460781352c9c65ed23fa';
+const API_KEY = process.env.KEY
 const URL = 'https://newsapi.org/v2/top-headlines';
+// export key='e68bfd865eb3460781352c9c65ed23fa'
 
 app.get('/', (req, res)=>{
     res.status(200);
     res.type('text/html');
-    res.redirect('http://localhost:3000/search?search=latest+news');
+    res.redirect('http://localhost:3000/search?search=&country=sg');
 })
 
 app.get('/search', async (req,res)=>{
@@ -61,5 +62,5 @@ app.use(
 )
 
 app.listen(3000, ()=>{
-    console.log(`Application has started on ${new Date}`);
+    console.log(`Application has started on ${new Date} with API Key: ${API_KEY}`);
 })
