@@ -36,11 +36,11 @@ app.get('/search', async (req,res)=>{
     const result = await fetch (full_url);
     const news = await result.json();
 
-    // console.log(news);
+    console.log(news);
 
     const displayNews = news.articles.map(
         (d) => {
-            return { title: d.title, img: d['urlToImage'], summary: d.description, time: d.publishedAt }
+            return { title: d.title, img: d['urlToImage'], summary: d.description, url: d.url, time: d.publishedAt }
         }
     )
 
@@ -51,7 +51,8 @@ app.get('/search', async (req,res)=>{
     res.type('text/html');
     res.render('result', {
         search: search,
-        displayNews: displayNews
+        displayNews: displayNews,
+        hasContent: displayNews.length > 0
     })
 })
 

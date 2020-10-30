@@ -1,8 +1,13 @@
-{{#each displayNews}}
-    <div>
-        <h2>{{this.title}}</h2>
-        <img src="{{this.img}}" alt="">
-        <p>{{this.summary}}</p>
-        <small>{{this.time}}</small>
-    </div>
-{{/each}}
+{{#if hasContent}}
+    {{#each displayNews}}
+        <div class="my-5">
+            <h2 class="mt-5 mb-4 text-justify">{{this.title}}</h2>
+            <img class="my-2 text-center img-fluid" src="{{this.img}}" alt="">
+            <p class="my-2">{{this.summary}} <a href="{{this.url}}" target="_blank">Read more...</a></p>
+            <small>{{this.time}}</small>
+            <hr style="padding: 1px solid black;">
+        </div>
+    {{/each}}
+{{else}}
+    <h3>Your search of <span style="text-decoration: underline;">{{search}}</span> return no results</h3>
+{{/if}}

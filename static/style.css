@@ -2,8 +2,3 @@ label {
     font-size: 1.5rem;
     margin: 20px 0px;
 }
-
-.flag {
-    display: flex;
-    justify-content: space-between;
-}
